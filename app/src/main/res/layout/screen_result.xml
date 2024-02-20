@@ -58,8 +58,6 @@
                     android:id="@+id/correctCount_et"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/arizonia"
-                    android:text="5"
                     android:textColor="#001AFF"
                     android:textSize="39sp"
                     android:textStyle="bold" />

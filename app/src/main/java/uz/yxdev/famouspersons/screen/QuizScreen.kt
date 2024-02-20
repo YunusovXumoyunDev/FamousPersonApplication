@@ -3,6 +3,7 @@ package uz.yxdev.famouspersons.screen
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.core.view.children
 import androidx.core.view.isVisible
@@ -62,15 +63,21 @@ class QuizScreen : Fragment(R.layout.screen_quiz) {
             presenter.clickableBack()
         }
         binding.quizNextBtn.setOnClickListener {
-            var checkedIndex = 0
-            binding.radioGr.children.forEachIndexed { index, view ->
-                if (view.id == binding.radioGr.checkedRadioButtonId)
-                    checkedIndex == index
+            if (binding.firstAnswer.isChecked){
+                presenter.next(0)
             }
-            presenter.next(checkedIndex)
-            binding.quizBackBtn.setOnClickListener {
-                presenter.previous()
+            if (binding.secondAnswer.isChecked){
+                presenter.next(1)
             }
+            if (binding.thirdAnswer.isChecked){
+                presenter.next(2)
+            }
+            if (binding.fourthAnswer.isChecked){
+                presenter.next(3)
+            }
+        }
+        binding.quizBackBtn.setOnClickListener {
+            presenter.previous()
         }
     }
 
@@ -83,6 +90,7 @@ class QuizScreen : Fragment(R.layout.screen_quiz) {
                 "Result Screen"
             )
         }
+
     }
 
     override fun onDestroyView() {

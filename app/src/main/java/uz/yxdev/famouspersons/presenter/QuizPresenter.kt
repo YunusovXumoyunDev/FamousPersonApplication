@@ -1,5 +1,6 @@
 package uz.yxdev.famouspersons.presenter
 
+import android.util.Log
 import uz.yxdev.famouspersons.data.model.QuestionData
 import uz.yxdev.famouspersons.data.repsitory.QuestionRepository
 import uz.yxdev.famouspersons.screen.QuizScreen
@@ -32,6 +33,7 @@ class QuizPresenter(
     }
 
     fun next(index: Int) {
+
         if (currentIndex > currentLs.size - 1) {
             openCorrect()
             return
@@ -62,6 +64,7 @@ class QuizPresenter(
             it
         }.size
         view.openResult(correctCount)
+        Log.d("TTTT", answerLs.toString())
     }
 
     fun previous() {
